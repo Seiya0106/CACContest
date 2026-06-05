@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -35,6 +36,7 @@ public class PlayerMove : MonoBehaviour
     {
         Move();
         Jump();
+        Fall();
     }
 
     /// <summary>
@@ -56,6 +58,18 @@ public class PlayerMove : MonoBehaviour
             playerRigidbody.linearVelocity = new Vector2(playerRigidbody.linearVelocity.x, 5f);
             isGrounded = false;
             jumpPressed = false;
+        }
+    }
+
+    /// <summary>
+    /// プレイヤーの落下処理
+    /// </summary>
+    private void Fall()
+    {
+        // ジャンプの最高点に達したとき
+        if (playerRigidbody.linearVelocity.y < 0)
+        {
+            playerRigidbody.linearVelocity += Vector2.up * Physics2D.gravity.y * Time.deltaTime;
         }
     }
     /// <summary>
