@@ -34,16 +34,29 @@ public class PlayerMove : MonoBehaviour
     void Update()
     {
         Move();
+        Jump();
+    }
+
+    /// <summary>
+    /// プレイヤーの移動処理
+    /// </summary>
+    private void Move()
+    {
+        transform.position += new Vector3(moveInput.x, 0, 0) * Time.deltaTime * 5f;
+    }
+
+    /// <summary>
+    /// プレイヤーのジャンプ処理
+    /// </summary>
+    private void Jump()
+    {
+        // 地面に設置していて、space/Southボタンが押されたときにジャンプする
         if (isGrounded && jumpPressed)
         {
             playerRigidbody.linearVelocity = new Vector2(playerRigidbody.linearVelocity.x, 5f);
             isGrounded = false;
             jumpPressed = false;
         }
-    }
-    private void Move()
-    {
-        transform.position += new Vector3(moveInput.x, 0, 0) * Time.deltaTime * 5f;
     }
     /// <summary>
     /// オブジェクトが有効になった時の処理
@@ -83,7 +96,6 @@ public class PlayerMove : MonoBehaviour
     /// <param name="ctx"></param>
     private void OnJumpPerformed(InputAction.CallbackContext ctx)
     {
-        // ジャンプの処理をここに追加
         if (isGrounded)
         {
             jumpPressed = true;
