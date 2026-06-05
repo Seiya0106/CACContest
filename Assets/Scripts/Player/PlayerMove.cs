@@ -17,13 +17,9 @@ public class PlayerMove : MonoBehaviour
         moveAction.AddCompositeBinding("2DVector")
             .With("Left", "<Keyboard>/a")
             .With("Right", "<Keyboard>/d");
-        moveAction.AddCompositeBinding("2DVector")
-            .With("Left", "<Gamepad>/dpad/left")
-            .With("Right", "<Gamepad>/dpad/right");
         
         // ジャンプアクションの登録
         jumpAction = new InputAction("Jump", binding: "<Keyboard>/space");
-        jumpAction.AddBinding("<Gamepad>/buttonSouth");
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
