@@ -8,6 +8,7 @@ public class PlayerMove : MonoBehaviour
     private Vector2 moveInput;
     [SerializeField] private Rigidbody2D playerRigidbody;
     private bool isGrounded = true;
+    private bool jumpPressed = false;
     void Awake()
     {
         // 移動アクションの登録
@@ -32,10 +33,11 @@ public class PlayerMove : MonoBehaviour
     void Update()
     {
         Move();
-        if (!isGrounded)
+        if (isGrounded && jumpPressed)
         {
             playerRigidbody.linearVelocity = new Vector2(playerRigidbody.linearVelocity.x, 5f);
-            isGrounded = true;
+            isGrounded = false;
+            jumpPressed = false;
         }
     }
     private void Move()
@@ -74,6 +76,16 @@ public class PlayerMove : MonoBehaviour
     private void OnJumpPerformed(InputAction.CallbackContext ctx)
     {
         // ジャンプの処理をここに追加
-        isGrounded = false;
+        if (isGrounded)
+        {
+            jumpPressed = true;
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
     }
 }
