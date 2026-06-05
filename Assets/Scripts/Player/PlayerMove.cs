@@ -19,6 +19,7 @@ public class PlayerMove : MonoBehaviour
         moveAction.AddCompositeBinding("2DVector")
             .With("Left", "<Gamepad>/dpad/left")
             .With("Right", "<Gamepad>/dpad/right");
+        
         // ジャンプアクションの登録
         jumpAction = new InputAction("Jump", binding: "<Keyboard>/space");
         jumpAction.AddBinding("<Gamepad>/buttonSouth");
@@ -53,10 +54,12 @@ public class PlayerMove : MonoBehaviour
         moveAction.Enable();
         moveAction.performed += OnMovePerformed;
         moveAction.canceled += OnMoveCanceled;
+
         // ジャンプアクションの有効化とイベント登録
         jumpAction.Enable();
         jumpAction.performed += OnJumpPerformed;
     }
+
     /// <summary>
     /// 移動アクションが実行されたときの処理
     /// </summary>
@@ -73,6 +76,11 @@ public class PlayerMove : MonoBehaviour
     {
         moveInput = Vector2.zero;
     }
+
+    /// <summary>
+    /// ジャンプアクションが実行されたときの処理
+    /// </summary>
+    /// <param name="ctx"></param>
     private void OnJumpPerformed(InputAction.CallbackContext ctx)
     {
         // ジャンプの処理をここに追加
@@ -81,6 +89,11 @@ public class PlayerMove : MonoBehaviour
             jumpPressed = true;
         }
     }
+
+    /// <summary>
+    /// オブジェクトに衝突したときの処理
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
