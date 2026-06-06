@@ -28,7 +28,16 @@ public class DraggableRoad : MonoBehaviour
         if (wasDragged)
         {
             boxCollider.isTrigger = false;   // ドラッグされた後はPlayerが足場にできるように当たり判定を有効にする
+            ChangeToGray();
         }
+    }
+
+    /// <summary>
+    /// オブジェクトの色を灰色に変更する処理
+    /// </summary>
+    private void ChangeToGray()
+    {
+        gameObject.GetComponent<SpriteRenderer>().color = Color.gray;
     }
 
     /// <summary>
