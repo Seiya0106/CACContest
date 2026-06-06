@@ -20,10 +20,13 @@ public class DraggableRoad : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HitJudgementActive();
+        HitJudgementActiveAfterDrag();
     }
 
-    private void HitJudgementActive()
+    /// <summary>
+    /// オブジェクトがドラッグされた後の当たり判定を有効にする処理
+    /// </summary>
+    private void HitJudgementActiveAfterDrag()
     {
         if (wasDragged)
         {
