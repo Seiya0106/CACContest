@@ -36,6 +36,15 @@ public class PlayerMove : MonoBehaviour
     }
 
     /// <summary>
+    /// オブジェクトに衝突したときの処理
+    /// </summary>
+    /// <param name="collision"></param>
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        OnTheGround(collision);
+    }
+
+    /// <summary>
     /// プレイヤーの移動処理
     /// </summary>
     private void Move()
@@ -113,10 +122,10 @@ public class PlayerMove : MonoBehaviour
     }
 
     /// <summary>
-    /// オブジェクトに衝突したときの処理
+    /// オブジェクトが地面に接地しているかの判定処理
     /// </summary>
     /// <param name="collision"></param>
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTheGround(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
