@@ -6,6 +6,8 @@ public class DraggableRoad : MonoBehaviour
     [SerializeField] private BoxCollider2D boxCollider;
     private Vector3 screenPoint;    // オブジェクトのスクリーン座標を保存する変数
     private Vector3 offset;         // オブジェクトの位置とマウスの位置の差分を保存する変数
+    private Vector3 minScreenBounds;   // カメラの左下のワールド座標を保存する変数
+    private Vector3 maxScreenBounds;   // カメラの右上のワールド座標を保存する変数
     private bool wasDragged = false;   // ドラッグされたかどうかを保存する変数
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -49,6 +51,7 @@ public class DraggableRoad : MonoBehaviour
     private void OnMouseDown()
     {
         if (wasDragged) return; // 2回目以降は処理しない
+        
         screenPoint = mainCamera.WorldToScreenPoint(transform.position);  // オブジェクトのワールド座標をスクリーン座標に変換して保存
         offset = transform.position - mainCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));  // オブジェクトの位置とマウスの位置の差分を計算して保存 
     }
@@ -59,8 +62,18 @@ public class DraggableRoad : MonoBehaviour
     private void OnMouseDrag()
     {
         if (wasDragged) return; // 2回目以降は処理しない
+
         Vector3 currentScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);  // マウスの現在の位置をスクリーン座標で取得
         Vector3 currentPosition = mainCamera.ScreenToWorldPoint(currentScreenPoint) + offset;   // スクリーン座標をワールド座標に変換し、オフセットを加算して新しい位置を計算
+
+        // カメラの左下（0, 0）と右上（1, 1）のワールド座標を取得
+        minScreenBounds = mainCamera.ViewportToWorldPoint(new Vector3(0, 0, screenPoint.z));
+        maxScreenBounds = mainCamera.ViewportToWorldPoint(new Vector3(1, 1, screenPoint.z));
+
+        // 計算した位置が画面の外に出ないように制限
+        currentPosition.x = Mathf.Clamp(currentPosition.x, minScreenBounds.x, maxScreenBounds.x);
+        currentPosition.y = Mathf.Clamp(currentPosition.y, minScreenBounds.y, maxScreenBounds.y);
+
         transform.position = currentPosition;
     }
 
