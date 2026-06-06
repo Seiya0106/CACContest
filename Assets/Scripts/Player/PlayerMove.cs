@@ -120,7 +120,11 @@ public class PlayerMove : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            isGrounded = true;
+            ContactPoint2D contactPoint = collision.contacts[0];    // 衝突点の法線ベクトルを取得
+            if (contactPoint.normal.y > 0.5f)   // 地面に接地しているか
+            {
+                isGrounded = true;
+            }
         }
     }
 }
