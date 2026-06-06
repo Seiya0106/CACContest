@@ -16,7 +16,9 @@ public class PlayerMove : MonoBehaviour
         moveAction = new InputAction("Move");
         moveAction.AddCompositeBinding("2DVector")
             .With("Left", "<Keyboard>/a")
-            .With("Right", "<Keyboard>/d");
+            .With("Right", "<Keyboard>/d")
+            .With("Left", "<Keyboard>/leftArrow")
+            .With("Right", "<Keyboard>/rightArrow");
         
         // ジャンプアクションの登録
         jumpAction = new InputAction("Jump", binding: "<Keyboard>/space");
