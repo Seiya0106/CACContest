@@ -1,8 +1,8 @@
-public class TutorialButton : BaseButton, ISceneLoader
+public class Stage1Button : BaseButton
 {
     protected override void OnExcute()
     {
-        LoadAnyScene("Tutorial");
+        LoadAnyScene("Stage1");
     }
 
     public void LoadAnyScene(string sceneName)

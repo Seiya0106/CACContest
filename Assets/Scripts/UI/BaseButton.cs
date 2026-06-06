@@ -1,6 +1,8 @@
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public abstract class BaseButton : MonoBehaviour,
 IPointerClickHandler, IPointerDownHandler, IPointerUpHandler, 
@@ -60,5 +62,12 @@ IPointerEnterHandler, IPointerExitHandler
     protected virtual void ResetVisual()
     {
         transform.DOScale(originalScale, 0.12f).SetEase(Ease.OutCubic);   // ボタンを元の大きさに戻す処理
+    }
+
+    // 遅延を設定してシーンをロードするコルーチン
+    protected IEnumerator LoadSceneWithDelay(string sceneName, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene(sceneName);
     }
 }
