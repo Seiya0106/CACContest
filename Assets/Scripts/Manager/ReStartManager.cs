@@ -23,6 +23,9 @@ public class ReStartManager : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// オブジェクトが有効になったときの処理
+    /// </summary>
     private void OnEnable()
     {
         // リスタートアクションの有効化とイベント登録
@@ -30,8 +33,20 @@ public class ReStartManager : MonoBehaviour
         restartAction.performed += OnReStartPerformed;
     }
 
+    /// <summary>
+    /// リスタートアクションが実行されたときの処理
+    /// </summary>
+    /// <param name="context"></param>
     private void OnReStartPerformed(InputAction.CallbackContext context)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);;
+        LoadCurrentScene();
+    }
+
+    /// <summary>
+    /// 現在のシーンをロードして、リスタートする処理
+    /// </summary>
+    private void LoadCurrentScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
