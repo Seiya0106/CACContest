@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class NextStageManager : MonoBehaviour
+public class NextStageManager : MonoBehaviour, ISceneLoader
 {
     [SerializeField] private GameClearManager gameClearManager;
     private InputAction nextStageAction;
@@ -36,7 +36,12 @@ public class NextStageManager : MonoBehaviour
     {
         if (gameClearManager.IsGameCleared)
         {
-            SceneManager.LoadScene(nextStageName);
+            LoadAnyScene(nextStageName);
         }
+    }
+
+    public void LoadAnyScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
 }
