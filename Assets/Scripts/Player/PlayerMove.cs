@@ -16,7 +16,9 @@ public class PlayerMove : MonoBehaviour
         moveAction = new InputAction("Move");
         moveAction.AddCompositeBinding("2DVector")
             .With("Left", "<Keyboard>/a")
-            .With("Right", "<Keyboard>/d");
+            .With("Right", "<Keyboard>/d")
+            .With("Left", "<Keyboard>/leftArrow")
+            .With("Right", "<Keyboard>/rightArrow");
         
         // ジャンプアクションの登録
         jumpAction = new InputAction("Jump", binding: "<Keyboard>/space");
@@ -42,6 +44,18 @@ public class PlayerMove : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         OnTheGround(collision);
+    }
+
+    /// <summary>
+    /// オブジェクトから離れたときの処理
+    /// </summary>
+    /// <param name="collision"></param>
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = false;
+        }
     }
 
     /// <summary>
