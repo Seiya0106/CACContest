@@ -1,11 +1,13 @@
 using UnityEngine;
+using TMPro;
 
 public class GameOverManager : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI gameoverText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        gameoverText.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -18,7 +20,7 @@ public class GameOverManager : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("GameOver");
+            gameoverText.gameObject.SetActive(true);
             Destroy(collision.gameObject);
         }
     }
