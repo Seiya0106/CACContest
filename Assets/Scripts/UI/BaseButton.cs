@@ -14,6 +14,7 @@ IPointerEnterHandler, IPointerExitHandler
         originalScale = transform.localScale;   // ボタンの元の大きさを保存する処理
     }
 
+    // クリックされた時の処理
     public void OnPointerClick(PointerEventData eventData)
     {
         OnExcute();
