@@ -20,6 +20,11 @@ public class DraggableRoad : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        HitJudgementActive();
+    }
+
+    private void HitJudgementActive()
+    {
         if (wasDragged)
         {
             boxCollider.isTrigger = false;   // ドラッグされた後はPlayerが足場にできるように当たり判定を有効にする
