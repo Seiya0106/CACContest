@@ -45,6 +45,18 @@ public class PlayerMove : MonoBehaviour
     }
 
     /// <summary>
+    /// オブジェクトから離れたときの処理
+    /// </summary>
+    /// <param name="collision"></param>
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = false;
+        }
+    }
+
+    /// <summary>
     /// プレイヤーの移動処理
     /// </summary>
     private void Move()
