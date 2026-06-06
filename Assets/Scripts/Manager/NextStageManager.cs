@@ -1,10 +1,12 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class NextStageManager : MonoBehaviour
 {
     [SerializeField] private GameClearManager gameClearManager;
     private InputAction nextStageAction;
+    [SerializeField] private string nextStageName;
 
     void Awake()
     {
@@ -34,7 +36,7 @@ public class NextStageManager : MonoBehaviour
     {
         if (gameClearManager.IsGameCleared)
         {
-            Debug.Log("次のステージへ");
+            SceneManager.LoadScene(nextStageName);
         }
     }
 }

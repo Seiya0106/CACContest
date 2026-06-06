@@ -438,6 +438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameClearManager: {fileID: 1852829910}
+  nextStageName: Stage1
 --- !u!4 &1362256987
 Transform:
   m_ObjectHideFlags: 0
