@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class ReStartManager : MonoBehaviour
+public class ReStartManager : MonoBehaviour, ISceneLoader
 {
     private InputAction restartAction;
 
@@ -39,14 +39,15 @@ public class ReStartManager : MonoBehaviour
     /// <param name="context"></param>
     private void OnReStartPerformed(InputAction.CallbackContext context)
     {
-        LoadCurrentScene();
+        LoadAnyScene(SceneManager.GetActiveScene().name);
     }
 
     /// <summary>
     /// 現在のシーンをロードして、リスタートする処理
     /// </summary>
-    private void LoadCurrentScene()
+    public void LoadAnyScene(string sceneName)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        sceneName = SceneManager.GetActiveScene().name; // 現在のシーン名を取得
+        SceneManager.LoadScene(sceneName);
     }
 }
