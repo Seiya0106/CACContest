@@ -3,7 +3,10 @@ using TMPro;
 
 public class GameClearManager : MonoBehaviour
 {
+    [SerializeField] private PlayerMove playerMove;
     [SerializeField] private TextMeshProUGUI gameClearText;
+    private bool isGameCleared = false;
+    public bool IsGameCleared => isGameCleared;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,6 +23,8 @@ public class GameClearManager : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            playerMove.enabled = false;   // プレイヤーの移動を無効にする
+            isGameCleared = true;
             gameClearText.gameObject.SetActive(true);
         }
     }
