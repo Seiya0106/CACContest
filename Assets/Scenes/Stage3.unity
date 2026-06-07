@@ -600,11 +600,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3986214882633408270, guid: f8ad9f22af9e34863a1a415bf4e0a4f8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7
+      value: -5.12
       objectReference: {fileID: 0}
     - target: {fileID: 3986214882633408270, guid: f8ad9f22af9e34863a1a415bf4e0a4f8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3
+      value: -3.85
       objectReference: {fileID: 0}
     - target: {fileID: 3986214882633408270, guid: f8ad9f22af9e34863a1a415bf4e0a4f8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1184,10 +1184,6 @@ PrefabInstance:
     - target: {fileID: 6440682245799635721, guid: 61ff6aa90e5bc49f88a4d7921e40328b, type: 3}
       propertyPath: m_Name
       value: NextStageManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 7299057504429345955, guid: 61ff6aa90e5bc49f88a4d7921e40328b, type: 3}
-      propertyPath: nextStageName
-      value: Stage3
       objectReference: {fileID: 0}
     - target: {fileID: 7299057504429345955, guid: 61ff6aa90e5bc49f88a4d7921e40328b, type: 3}
       propertyPath: gameClearManager
