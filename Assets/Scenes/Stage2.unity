@@ -1113,10 +1113,6 @@ PrefabInstance:
       value: NextStageManager
       objectReference: {fileID: 0}
     - target: {fileID: 7299057504429345955, guid: 61ff6aa90e5bc49f88a4d7921e40328b, type: 3}
-      propertyPath: nextStageName
-      value: Stage2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7299057504429345955, guid: 61ff6aa90e5bc49f88a4d7921e40328b, type: 3}
       propertyPath: gameClearManager
       value: 
       objectReference: {fileID: 1852829910}
