@@ -307,7 +307,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Game Clear
+  m_text: 'Stage Clear
 
     Press Enter to next stage'
   m_isRightToLeft: 0
