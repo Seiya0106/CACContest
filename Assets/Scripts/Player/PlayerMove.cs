@@ -146,6 +146,7 @@ public class PlayerMove : MonoBehaviour
             if (contactPoint.normal.y > 0.5f)   // 地面に接地しているか
             {
                 isGrounded = true;
+                Debug.Log("Grounded");
             }
         }
     }
