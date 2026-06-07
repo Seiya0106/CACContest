@@ -4,7 +4,7 @@ CACコンテスト「繋がる」で使用するリポジトリ
 Unity バージョン 6000.0.68f1(LTS)
 
 ### ゲーム名
-[Link to Goal]()
+[Link to Goal](https://unityroom.com/games/linktogoal)
 
 ### ゲーム概要
 ゴールに「繋がる」道を作って、ゴールを目指すアクションゲーム
