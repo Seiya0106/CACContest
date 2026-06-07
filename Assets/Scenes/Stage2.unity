@@ -132,10 +132,6 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3986214882633408270, guid: f8ad9f22af9e34863a1a415bf4e0a4f8, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3986214882633408270, guid: f8ad9f22af9e34863a1a415bf4e0a4f8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7
       objectReference: {fileID: 0}
@@ -528,10 +524,6 @@ PrefabInstance:
     - target: {fileID: 3986214882633408270, guid: f8ad9f22af9e34863a1a415bf4e0a4f8, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3986214882633408270, guid: f8ad9f22af9e34863a1a415bf4e0a4f8, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3986214882633408270, guid: f8ad9f22af9e34863a1a415bf4e0a4f8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1119,10 +1111,6 @@ PrefabInstance:
     - target: {fileID: 6440682245799635721, guid: 61ff6aa90e5bc49f88a4d7921e40328b, type: 3}
       propertyPath: m_Name
       value: NextStageManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 7299057504429345955, guid: 61ff6aa90e5bc49f88a4d7921e40328b, type: 3}
-      propertyPath: nextStageName
-      value: Stage2
       objectReference: {fileID: 0}
     - target: {fileID: 7299057504429345955, guid: 61ff6aa90e5bc49f88a4d7921e40328b, type: 3}
       propertyPath: gameClearManager
